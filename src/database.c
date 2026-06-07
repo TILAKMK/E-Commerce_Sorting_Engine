@@ -16,7 +16,8 @@ int load_orders(const char *filepath, Order orders[], int max_records) {
             is_header = 0;
             continue;
         }
-        sscanf(line, "%[^,],%[^,],%[^,],%d,%lf,%d,%d",
+        // Enforce a 31-character limit to leave room for the null terminator
+        sscanf(line, "%31[^,],%31[^,],%31[^,],%d,%lf,%d,%d",
                orders[count].order_id,
                orders[count].customer_name,
                orders[count].order_date,

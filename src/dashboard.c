@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "engine.h"
 
+// Upgraded 24-bit TrueColor Palette
 #define C_RST   "\x1b[0m"
-#define C_HDR   "\x1b[48;5;17m\x1b[38;5;15m\x1b[1m" // Deep dark background, white text
-#define C_ACC   "\x1b[38;5;39m" // Blue accent
-#define C_GRN   "\x1b[38;5;47m" 
-#define C_DIM   "\x1b[38;5;244m"
+#define C_HDR   "\x1b[48;2;2;6;23m\x1b[38;2;248;250;252m\x1b[1m" // Deep dark slate background (#020617), bright text
+#define C_ACC   "\x1b[38;2;56;189;248m" // Vibrant sky blue accent
+#define C_GRN   "\x1b[38;2;52;211;153m" // Smooth emerald green
+#define C_DIM   "\x1b[38;2;148;163;184m" // Muted slate gray for borders
 
 void clear_screen() {
 #ifdef _WIN32
@@ -51,6 +53,13 @@ void render_dashboard(Order orders[], int n) {
         
         printf("Sys_Terminal> ");
         if (!fgets(buffer, sizeof(buffer), stdin)) break;
+        
+        // Check if a newline is in the buffer. If not, the input was too long and we must flush stdin.
+        if (!strchr(buffer, '\n')) {
+            int ch;
+            while ((ch = getchar()) != '\n' && ch != EOF);
+        }
+        
         choice = atoi(buffer);
 
         if (choice == 1) {

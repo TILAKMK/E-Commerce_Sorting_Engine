@@ -34,6 +34,12 @@ static void merge(Order orders[], int left, int mid, int right, int (*compare)(c
     Order *L = (Order*)malloc(n1 * sizeof(Order));
     Order *R = (Order*)malloc(n2 * sizeof(Order));
 
+    // Security check for failed allocations
+    if (!L || !R) {
+        fprintf(stderr, "CRITICAL ERROR: Memory allocation failed during merge.\n");
+        exit(EXIT_FAILURE);
+    }
+
     for (int i = 0; i < n1; i++)
         L[i] = orders[left + i];
     for (int j = 0; j < n2; j++)
