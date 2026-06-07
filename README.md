@@ -4,13 +4,13 @@ A high-throughput transactional sorting engine designed for enterprise logistics
 
 ## System Architecture
 
-The application relies on structural multi-attribute sorting to strictly satisfy commercial delivery SLAs. Primitive quadratic frameworks like Bubble or Selection Sort were rejected due to catastrophic worst-case degradation ($O(n^2)$). 
+The application relies on structural multi-attribute sorting to strictly satisfy commercial delivery SLAs. Primitive quadratic frameworks like Bubble or Selection Sort were rejected due to catastrophic worst-case degradation (**O(n²)**). 
 
 This system guarantees:
-* **Strict Performance:** $O(n \log n)$ runtime across all permutations.
+* **Strict Performance:** **O(n log n)** runtime across all permutations.
 * **Positional Stability:** Preserves initial FIFO temporal tracking for identical keys.
-* **Enterprise Hierarchies:** 1. *Priority Routing:* Premium Status $\rightarrow$ Priority $\rightarrow$ Pincode.
-  2. *Chronological Routing:* Premium Status $\rightarrow$ Priority $\rightarrow$ Order Date $\rightarrow$ Pincode.
+* **Enterprise Hierarchies:** 1. *Priority Routing:* Premium Status -> Priority -> Pincode.
+  2. *Chronological Routing:* Premium Status -> Priority -> Order Date -> Pincode.
 
 ## Installation & Compilation
 
