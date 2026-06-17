@@ -12,7 +12,7 @@ This system guarantees:
 * **Enterprise Hierarchies:** 1. *Priority Routing:* Premium Status -> Priority -> Pincode.
   2. *Chronological Routing:* Premium Status -> Priority -> Order Date -> Pincode.
 
-## Installation & Compilation
+## Installation & Compilation 
 
 1. Ensure you have `gcc` and `make` installed on your system.
 2. Clone the repository and navigate to the root directory.
