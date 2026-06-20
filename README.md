@@ -17,5 +17,5 @@ This system guarantees:
 1. Ensure you have `gcc` and `make` installed on your system.
 2. Clone the repository and navigate to the root directory.
 3. Compile the project using the provided Makefile:
-   ```bash 
+   ```bash
    make
